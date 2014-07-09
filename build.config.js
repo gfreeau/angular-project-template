@@ -12,8 +12,8 @@ module.exports = {
             tests: ['src/**/*.spec.js'],
             appTemplates: ['src/app/**/*.tpl.html'],
             commonTemplates: ['src/common/**/*.tpl.html'],
-            css: ['src/assets/**/*.css'],
-            html: ['src/*.html']
+            scss: ['src/styles/main.scss'],
+            html: ['src/index.html']
         },
 
         vendorFiles: {

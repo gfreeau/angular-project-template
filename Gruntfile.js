@@ -2,6 +2,20 @@ module.exports = function(grunt) {
     var userConfig = require('./build.config.js');
 
     var taskConfig = {
+        connect: {
+            server: {
+                options: {
+                    livereload: true,
+                    base: '<%= appConfig.dirs.build.dev %>',
+                    port: 9000,
+                    open: {
+                        target: 'http://localhost:9000',
+                        appName: 'chromium-browser'
+                    }
+                }
+            }
+        },
+
         watch: {
             options: {
                 livereload: true
@@ -29,11 +43,11 @@ module.exports = function(grunt) {
                 tasks: ['build']
             },
 
-            appStyles: {
+            compass: {
                 files: [
-                    '<%= appConfig.appFiles.css %>'
+                    '<%= appConfig.appFiles.scss %>'
                 ],
-                tasks: ['build']
+                tasks: ['compass:dev']
             }
         },
 
@@ -49,16 +63,8 @@ module.exports = function(grunt) {
                         expand: true,
                         src: [
                             '<%= appConfig.appFiles.js %>',
-                            '<%= appConfig.appFiles.css %>',
                             '<%= appConfig.vendorFiles.js %>',
                             '<%= appConfig.vendorFiles.css %>'
-                        ],
-                        dest: '<%= appConfig.dirs.build.dev %>'
-                    },
-                    {
-                        expand: true,
-                        src: [
-                            '<%= appConfig.appFiles.css %>'
                         ],
                         dest: '<%= appConfig.dirs.build.dev %>'
                     },
@@ -103,6 +109,16 @@ module.exports = function(grunt) {
             }
         },
 
+        compass: {
+            dev: {
+                options: {
+                    sassDir: "src/styles",
+                    cssDir: "<%= appConfig.dirs.build.dev %>/assets/styles",
+                    noLineComments: true
+                }
+            }
+        },
+
         injector: {
             dev: {
                 options: {
@@ -117,7 +133,7 @@ module.exports = function(grunt) {
                         src: [
                             '<%= appConfig.vendorFiles.js %>',
                             '<%= appConfig.appFiles.js %>',
-                            '<%= appConfig.appFiles.css %>'
+                            'assets/**/*.css'
                         ]
                     }
                 ]
@@ -129,7 +145,7 @@ module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('default', ['build', 'watch']);
+    grunt.registerTask('default', ['build', 'connect:server', 'watch']);
 
-    grunt.registerTask('build', ['sync:dev', 'delete_sync:dev', 'injector:dev']);
+    grunt.registerTask('build', ['sync:dev', 'delete_sync:dev', 'compass:dev', 'injector:dev']);
 };
