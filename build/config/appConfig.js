@@ -1,8 +1,8 @@
 module.exports = {
     dirs: {
         build: {
-            dev: 'build/dev',
-            prod: 'build/prod'
+            dev: 'build/targets/dev',
+            prod: 'build/targets/prod'
         }
     },
     appFiles: {

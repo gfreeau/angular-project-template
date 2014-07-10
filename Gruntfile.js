@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     var options = {
         config : {
             src: [
-                'config/**/*.js*'
+                'build/config/**/*.js*'
             ]
         }
     };
