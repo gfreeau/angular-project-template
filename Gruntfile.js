@@ -20,15 +20,19 @@ module.exports = function(grunt) {
 
     grunt.renameTask('delete_sync', 'deletesync');
 
-    grunt.registerTask('default', ['build', 'connect:server', 'watch']);
+    grunt.registerTask('default', [
+        'build',
+        'connect:server',
+        'watch'
+    ]);
 
     grunt.registerTask('build', [
-        'sync:dev',
-        'deletesync:dev',
-        'cleanempty:dev',
         'html2js:app',
         'html2js:common',
         'compass:server',
+        'sync:dev',
+        'deletesync:dev',
+        'cleanempty:dev',
         'injector:dev'
     ]);
 };
