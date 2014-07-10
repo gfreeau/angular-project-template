@@ -10,6 +10,7 @@
         "grunt-contrib-jshint": "^0.10.0",
         "grunt-contrib-watch": "^0.6.1",
         "grunt-delete-sync": "0.0.2",
+        "grunt-html2js": "^0.2.8",
         "grunt-injector": "^0.5.2",
         "grunt-sync": "0.0.7",
         "load-grunt-configs": "^0.4.0",

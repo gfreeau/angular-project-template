@@ -1,9 +1,12 @@
 module.exports = {
-    dev: {
+    server: {
         options: {
             sassDir: 'src/styles',
-            cssDir: '<%= appConfig.dirs.build.dev %>/assets/styles',
-            noLineComments: true
+            cssDir: '<%= appConfig.dirs.temp %>/generated-css',
+            imagesDir: "src/styles/ui/images/",
+            noLineComments: true,
+            relativeAssets: true,
+            cacheDir: '<%= appConfig.dirs.temp %>/.sass-cache'
         }
     }
 };

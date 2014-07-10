@@ -11,6 +11,8 @@ module.exports = {
                 expand: true,
                 src: [
                     '<%= appConfig.vendorFiles.js %>',
+                    'templates-app.js',
+                    'templates-common.js',
                     '<%= appConfig.appFiles.js %>',
                     'assets/**/*.css'
                 ]

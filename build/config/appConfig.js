@@ -3,7 +3,8 @@ module.exports = {
         build: {
             dev: 'build/targets/dev',
             prod: 'build/targets/prod'
-        }
+        },
+        temp: 'build/temp'
     },
     appFiles: {
         js: ['src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js'],

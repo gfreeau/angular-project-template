@@ -1,5 +1,5 @@
 node_modules
 vendor
-.sass-cache
 build/targets
+build/temp
 build/config/userConfig.js
