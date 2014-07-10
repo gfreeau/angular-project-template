@@ -3,10 +3,11 @@ module.exports = {
         options: {
             livereload: true,
             base: '<%= appConfig.dirs.build.dev %>',
-            port: '<%= userConfig.port %>' || 9000,
+            hostname: '<%= userConfig.hostname %>',
+            port: '<%= userConfig.port %>',
             open: {
-                target: 'http://localhost:<%= connect.server.options.port %>',
-                appName: '<%= userConfig.browser %>' || 'firefox'
+                target: '<%= userConfig.appUrl %>',
+                appName: '<%= userConfig.browser %>'
             }
         }
     }

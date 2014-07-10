@@ -10,7 +10,7 @@ $ bower install
 $ grunt
 ```
 
-There is a file at build/config/userConfig.js that can be used to overwrite some configuration values.
+Create a new file called build/config/userConfig.js from the build/config/userConfig.js.dist template.
 
 Benefits over ngBoilerplate
 ===========================

@@ -1,8 +1,14 @@
 module.exports = function(grunt) {
+    if (!grunt.file.exists('./build/config/userConfig.js')) {
+        grunt.fail.fatal('You must create the build/config/userConfig.js file');
+    }
+
     var options = {
         config : {
             src: [
-                'build/config/**/*.js'
+                'build/config/userConfig.js',
+                'build/config/**/*.js*',
+                '!build/config/**/*.dist'
             ]
         }
     };
