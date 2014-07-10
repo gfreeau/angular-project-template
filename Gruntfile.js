@@ -14,5 +14,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['build', 'connect:server', 'watch']);
 
-    grunt.registerTask('build', ['sync:dev', 'delete_sync:dev', 'compass:dev', 'injector:dev']);
+    grunt.registerTask('build', ['sync:dev', 'delete_sync:dev', 'cleanempty:dev', 'compass:dev', 'injector:dev']);
 };
