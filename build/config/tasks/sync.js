@@ -14,10 +14,18 @@ module.exports = {
                 expand: true,
                 cwd: 'src',
                 src: [
-                    'fonts/**/*',
-                    'images/**/*'
+                    'assets/**/*',
+                    'favicon.ico',
                 ],
-                dest: '<%= appConfig.dirs.build.dev %>/assets'
+                dest: '<%= appConfig.dirs.build.dev %>'
+            },
+            {
+                expand: true,
+                cwd: 'src/styles',
+                src: [
+                    'img/**/*'
+                ],
+                dest: '<%= appConfig.dirs.build.dev %>/assets/css'
             },
             {
                 expand: true,
@@ -43,7 +51,7 @@ module.exports = {
                 src: [
                     '*.css'
                 ],
-                dest: '<%= appConfig.dirs.build.dev %>/assets/generated-css'
+                dest: '<%= appConfig.dirs.build.dev %>/assets/css'
             }
         ]
     }
